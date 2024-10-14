@@ -54,9 +54,9 @@ function App() {
 		let modal = document.querySelector(".modal");
 
 		if (!openForm) {
-			modal.style.backgroundColor = "rgba(255, 255, 255, 1)";
+			if(modal) {modal.style.backgroundColor = "rgba(255, 255, 255, 1)";}
 		} else {
-			modal.style.backgroundColor = "rgb(0, 0, 0, 0.5)";
+			if(modal){modal.style.backgroundColor = "rgb(0, 0, 0, 0.5)";}
 			document.addEventListener('mousedown', handleOutsideClick);
 		}
 		return () => {
@@ -66,12 +66,12 @@ function App() {
 
 
 	return (
-		<div id="root" style={{width:'100vw',height:'100vh'}}>
-			<div id='modal' className="modal">
-				<h1>User Details Modal</h1>
-				<button onClick={() => setOpenForm(true)}>Open Form</button>
-				{
-					openForm && (
+		<div id="root" style={{width: '100vw', height: '100vh'}}>
+			<h1>User Details Modal</h1>
+			<button onClick={() => setOpenForm(true)}>Open Form</button>
+			{
+				openForm && (
+					<div id='modal' className="modal">
 						<div className="modal-content" ref={modalRef} onClick={(e) => handleOutsideClick(e)}>
 							<button className='modal-close' onClick={() => setOpenForm(false)}>x</button>
 							<form onSubmit={(e) => {
@@ -80,7 +80,8 @@ function App() {
 								<h3>Fill Details</h3>
 								<div className='same-line'>
 									<p>Username: </p>
-									<input type="text" onChange={(e) => setUsername(e.target.value)} id='username'></input>
+									<input type="text" onChange={(e) => setUsername(e.target.value)}
+										   id='username'></input>
 								</div>
 								<div className='same-line'>
 									<p>Email Address: </p>
@@ -98,10 +99,11 @@ function App() {
 								<button type="submit" className='submit-button'>Submit</button>
 							</form>
 						</div>
-					)
-				}
-			</div>
+					</div>
+				)
+			}
 		</div>
+
 	);
 }
 
