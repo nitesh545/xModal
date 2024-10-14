@@ -66,7 +66,7 @@ function App() {
 
 
 	return (
-		<div className="root">
+		<div id="root">
 			<div id='modal' className="modal">
 				<h1>User Details Modal</h1>
 				<button onClick={() => setOpenForm(true)}>Open Form</button>
