@@ -45,7 +45,7 @@ function App() {
 	}
 
 	const handleOutsideClick = (e) => {
-		if(modalRef.current && !modalRef.current.contains(e.target)){
+		if (modalRef.current && !modalRef.current.contains(e.target)) {
 			setOpenForm(false);
 		}
 	}
@@ -66,39 +66,41 @@ function App() {
 
 
 	return (
-		<div id='modal' className="modal">
-			<h1>User Details Modal</h1>
-			<button onClick={() => setOpenForm(true)}>Open Form</button>
-			{
-				openForm && (
-					<div className="modal-content" ref={modalRef} onClick={(e) => handleOutsideClick(e)}>
-						<button className='modal-close' onClick={() => setOpenForm(false)}>x</button>
-						<form onSubmit={(e) => {
-							handleSubmit(e);
-						}}>
-							<h3>Fill Details</h3>
-							<div className='same-line'>
-								<p>Username: </p>
-								<input type="text" onChange={(e) => setUsername(e.target.value)} id='username'></input>
-							</div>
-							<div className='same-line'>
-								<p>Email Address: </p>
-								<input type="text" onChange={(e) => setEmail(e.target.value)} id='email'></input>
-							</div>
-							<div className='same-line'>
-								<p>Phone Number: </p>
-								<input type="text" onChange={(e) => setPhone(e.target.value)} id='phone'></input>
-							</div>
-							<div className='same-line'>
-								<p>Date of Birth: </p>
-								<input type="date" onChange={(e) => setDob(e.target.value)} id='dob'></input>
-							</div>
-							<p/>
-							<button type="submit" className='submit-button'>Submit</button>
-						</form>
-					</div>
-				)
-			}
+		<div className="root">
+			<div id='modal' className="modal">
+				<h1>User Details Modal</h1>
+				<button onClick={() => setOpenForm(true)}>Open Form</button>
+				{
+					openForm && (
+						<div className="modal-content" ref={modalRef} onClick={(e) => handleOutsideClick(e)}>
+							<button className='modal-close' onClick={() => setOpenForm(false)}>x</button>
+							<form onSubmit={(e) => {
+								handleSubmit(e);
+							}}>
+								<h3>Fill Details</h3>
+								<div className='same-line'>
+									<p>Username: </p>
+									<input type="text" onChange={(e) => setUsername(e.target.value)} id='username'></input>
+								</div>
+								<div className='same-line'>
+									<p>Email Address: </p>
+									<input type="text" onChange={(e) => setEmail(e.target.value)} id='email'></input>
+								</div>
+								<div className='same-line'>
+									<p>Phone Number: </p>
+									<input type="text" onChange={(e) => setPhone(e.target.value)} id='phone'></input>
+								</div>
+								<div className='same-line'>
+									<p>Date of Birth: </p>
+									<input type="date" onChange={(e) => setDob(e.target.value)} id='dob'></input>
+								</div>
+								<p/>
+								<button type="submit" className='submit-button'>Submit</button>
+							</form>
+						</div>
+					)
+				}
+			</div>
 		</div>
 	);
 }
