@@ -26,12 +26,12 @@ code {
 
 .modal-content {
   background-color: white;
-  transform: translate(38vw, 25vh);
-  padding: 20px;
-  border-radius: 4px;
-  max-width: 400px;
+  transform: translate(38vw, 0vh);
+  border-radius: 1rem;
+  max-width: 20vw;
+  max-height: 50vh;
   /*display: flex;*/
-  justify-content: center;
+  /*justify-content: center;*/
 }
 
 .modal-close {
@@ -42,4 +42,8 @@ code {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+.same-line {
+  display: flex;
 }
