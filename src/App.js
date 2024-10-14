@@ -49,7 +49,7 @@ function App() {
       <button onClick={()=>setOpenForm(true)}>Open Form</button>
       {
         openForm && (
-              <div className="modal-content App" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className='modal-close' onClick={() => setOpenForm(false)}>x</button>
                 <form onSubmit={(e) => {
                   handleSubmit(e);
