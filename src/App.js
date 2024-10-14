@@ -66,7 +66,7 @@ function App() {
 
 
 	return (
-		<div id="root" style={{width:'100%',height:'100%'}}>
+		<div id="root" style={{width:'100vw',height:'100vh'}}>
 			<div id='modal' className="modal">
 				<h1>User Details Modal</h1>
 				<button onClick={() => setOpenForm(true)}>Open Form</button>
