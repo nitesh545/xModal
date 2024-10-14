@@ -12,9 +12,10 @@ function App() {
   const handleInput = () => {
     let d = new Date(dob);
     let c = new Date();
-    if(phone.length !== 10) {alert("Invalid phone number. Please enter a 10-digit phone number."); return false;}
     if(!email.includes('@')){alert("Invalid email. Please enter a 10-digit phone number."); return false;}
+    if(phone.length !== 10) {alert("Invalid phone number. Please enter a 10-digit phone number."); return false;}
     if(d>c){alert("Invalid date of birth. Please enter a 10-digit phone number."); return false;}
+    if(email === '' || username === '' || phone === '' || dob === ''){alert("Please enter all details first."); return false;}
     return true;
   }
 
@@ -23,6 +24,10 @@ function App() {
     if(handleInput())
     {
       setOpenForm(false);
+      setEmail('');
+      setUsername('');
+      setPhone('');
+      setDob('');
     }
   }
 
@@ -51,13 +56,13 @@ function App() {
                 }}>
                   <h3>Fill Details</h3>
                   <h5>Username: </h5>
-                  <input required type="text" onChange={(e) => setUsername(e.target.value)} id='username'></input>
+                  <input type="text" onChange={(e) => setUsername(e.target.value)} id='username'></input>
                   <h5>Email Address: </h5>
-                  <input required type="text" onChange={(e) => setEmail(e.target.value)} id='email'></input>
+                  <input type="text" onChange={(e) => setEmail(e.target.value)} id='email'></input>
                   <h5>Phone Number: </h5>
-                  <input required type="text" onChange={(e) => setPhone(e.target.value)} id='phone'></input>
+                  <input type="text" onChange={(e) => setPhone(e.target.value)} id='phone'></input>
                   <h5>Date of Birth: </h5>
-                  <input required type="date" onChange={(e) => setDob(e.target.value)} id='dob'></input>
+                  <input type="date" onChange={(e) => setDob(e.target.value)} id='dob'></input>
                   <h5 />
                   <button type="submit" className='submit-button'>Submit</button>
                 </form>
